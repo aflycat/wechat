@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<!--强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览-->
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+<!--WebApp全屏模式   隐藏地址栏-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<!--苹果强制全屏显示-->
+<meta name="apple-touch-fullscreen" content="yes"/>
+<!--强制全屏显示-->
+<meta name="full-screen" content="yes"/>
+<!--制定iphone中safari顶端的状态条的样式（default:白色，black:黑色，black-translucent：半透明）-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<!--告诉设备忽略将页面中的数字识别为电话号码 -->
+<meta name="format-detection" content="telephone=no"/>
+<!--告诉设备忽略将页面中的地址识别 -->
+<meta name="format-detection" content="address=no"/>
+<meta charset="utf-8">
+
+<title>用户登录</title>
+<style>
+    @keyframes warn {
+        0% {
+            transform: scale(0);
+            opacity: 0.2;
+        }
+        25% {
+            transform: scale(0.2);
+            opacity: 0.3;
+        }
+        50% {
+            transform: scale(0.5);
+            opacity: 0.4;
+        }
+        75% {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(1.5);
+            opacity: 0.0;
+        }
+    }
+
+*{
+padding:0;
+margin:0;
+}
+ul li{
+
+	list-style:none;
+	vertical-align:top;
+}
+a{text-decoration: none;
+    color:#fff;}
+html{
+	min-height:100%;
+}
+body{
+    max-width:1080px;
+	min-height:100%;
+	background:-webkit-linear-gradient(#b04d8d,#566293);
+	color:#fff;
+    font-family:"黑体";
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:rgba(255,255,255,0.6);
+}
+
+ .ret_password{
+    position: absolute;
+    top:0.28rem;
+    right:0;
+    background:#f36da0;
+    color:#fff;
+    font-size: 0.4rem;
+    padding:0.3rem 0.3rem 0.3rem 0.5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    box-shadow:0px 0px 40px #87316a ;
+}
+
+.prev_space, .next_space{
+    height:5.3rem;
+    background:url(images/line_top.png) no-repeat 3.1rem bottom;
+    background-size:1px;
+}
+.next_space{
+    height:1rem;
+    background:url(images/line_bottom.png) no-repeat 3.1rem 0;
+    background-size:1px;
+    padding-top:0.5rem;
+}
+.main_from{
+    width:100%;
+    background: url("images/line_middle.png")  3.1rem 0 repeat-y;
+    background-size:1px;
+}
+
+.input_wrap{
+    width:100%;
+    height:0.8rem;
+    font-size:0.44rem;
+    overflow:hidden;
+    padding:0.4rem 0;
+}
+
+.input_wrap > *{
+    float:left;
+}
+.input_wrap .label_name{
+    width:2.5rem;
+    text-align:right;
+    line-height:0.8rem;
+}
+.input_wrap .circle{
+    width:0.8rem;
+    height:0.8rem;
+    position: relative;
+    margin-left:0.2rem;
+    margin-right:0.8rem;
+}
+
+
+.input_wrap .circle .cycle{
+    width:0.3rem;
+    height:0.3rem;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-top: -0.15rem;
+    margin-left:-0.15rem;
+    background: #fff;
+    border-radius: 50%;
+
+}
+.input_wrap .circle .opacircle{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background: #fff;
+    border-radius: 50%;
+    opacity:0.5;
+
+}
+
+    .input_wrap input{
+    width:5rem;
+    height:0.8rem;
+    border:none;
+    font-size:0.44rem;
+    color:#fff;
+    background: none;
+
+}
+.login_btn{
+    width:3.4rem;
+    height:1.2rem;
+    background: #f36da0;
+    color:#fff;
+    text-align: center;
+    line-height:1.2rem;
+    font-size:0.48rem;
+    margin:0 auto;
+    border-radius: 0.3rem;
+}
+.login_btn a{
+    color:#fff;
+}
+
+    .pulse {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        z-index: 1;
+        opacity: 0;
+        -webkit-animation: warn 2s ease-out infinite;
+        -moz-animation: warn 2s ease-out infinite;
+        animation: warn 2s ease-out infinite;
+    }
+
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+ function refresh(){
+    var deviceWidth = document.documentElement.clientWidth;
+if(deviceWidth>1080){
+    document.documentElement.style.fontSize=1080/10.8+"px";
+}else{
+     document.documentElement.style.fontSize=deviceWidth/10.8+"px";
+ }
+}
+refresh();
+window.onresize=function(){
+refresh();
+}
+</script>
+
+
+
+</head>
+
+<body>
+<div class="ret_password"><a href="javascript:;">找回密码</a></div>
+<div class="prev_space"></div>
+<div class="main_from">
+    <div class="input_wrap">
+        <div class="label_name">账号</div>
+        <div class="circle">
+            <span class="cycle"></span>
+            <span class="opacircle"></span>
+        </div>
+        <input type="text" placeholder="请在此输入账号">
+    </div>
+
+    <div class="input_wrap">
+        <div class="label_name">密码</div>
+        <div class="circle">
+            <span class="cycle"></span>
+            <span class="opacircle"></span>
+        </div>
+        <input type="text" placeholder="请在此输入密码">
+    </div>
+</div>
+<div class="next_space"></div>
+
+<div class="login_btn"><a href="javascript:;">登录</a></div>
+
+</body>
+<script type="text/javascript">
+$(function(){
+    $(".input_wrap").delegate("input","focus",function(){
+        var index_wrap=$(this).parent().index();
+        $(".opacircle").css("opacity","0");
+       $(".input_wrap:eq("+index_wrap+")").find(".opacircle").addClass("pulse");
+    });
+    $(".input_wrap").delegate("input","blur",function(){
+        $(".opacircle").css("opacity","0.5");
+        $(".opacircle").removeClass("pulse");
+    });
+
+})
+</script>
+</html>

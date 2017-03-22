@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="address=no"/>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<title>列表详情</title>
+<style>
+ *{
+padding:0;
+margin:0;
+}
+ul li{
+
+	list-style:none;
+	vertical-align:top;
+}
+a{text-decoration: none;
+    color:#fff;}
+html{
+	min-height:100%;
+}
+body{
+    max-width:1080px;
+	min-height:100%;
+	background:-webkit-linear-gradient(#b04d8d,#566293);
+	color:#fff;
+    font-family:"黑体";
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:rgba(255,255,255,0.6);
+}
+
+.prev_space, .next_space{
+    height:1.05rem;
+    background-size:1px;
+}
+.next_space{
+    background:url(images/line_bottom.png) no-repeat 1.73rem 0;
+    background-size:1px;
+    padding-top:0.5rem;
+}
+.main{
+    width:100%;
+    overflow: hidden;
+    background: url("images/line_middle.png")  1.73rem 0 repeat-y;
+    background-size:1px;
+    font-size:0.44rem;
+}
+
+.yearBox{
+    width:4.3rem;
+    height:1.42rem;
+    border-radius: 1rem;
+    background:url(images/detailImage01.png) no-repeat left top rgba(255,255,255,0.26);
+    background-size:1.42rem 1.42rem;
+    margin-left:1.05rem;
+}
+
+ .yearBox select{
+     width:1.8rem;
+     height:1.42rem;
+     border-radius: 1rem;
+     float: left;
+     background:url(images/select_down.png) no-repeat right center;
+	 background-size:0.48rem 0.22rem;
+     border:none;
+     color:#fff;
+     text-align: right;
+     margin-left:2rem;
+	  -webkit-appearance: none;
+ }
+ .yearBox select option{
+     background:#f36da0;
+     border-bottom:1px solid red;
+ }
+
+ .date_wrap{
+    margin:0.4rem 0;
+    height:0.82rem;
+ }
+
+ .date_wrap > *{
+     float:left;
+
+ }
+ .date_wrap .label_name{
+     width:1.26rem;
+     height:0.82rem;
+     line-height:0.82rem;
+     text-align:right;
+ }
+
+.date_wrap .circle{
+    position: relative;
+    width:0.82rem;
+    height:0.82rem;
+    margin-left:0.07rem;
+}
+
+ .date_wrap .circle .cycle{
+     margin:0.31rem;
+     width:0.2rem;
+     height:0.2rem;
+     background: #fff;
+     border-radius: 1rem;
+     display: block;
+ }
+
+
+ .xiaofeiDetail{
+    width:8rem;
+    height:0.82rem;
+    line-height: 0.82rem;
+    margin-left: 0.5rem;
+ }
+
+ .span_01{
+     width:3.5rem;
+     float: left;
+ }
+.span_02{
+     width:2.35rem;
+     float: left;
+ }
+.span_03{
+     width:1.8rem;
+     float: left;
+ }
+
+ .date_wrap_spe{
+     height:1rem;
+     position: relative;
+ }
+
+ .date_wrap_spe .cycle_spe{
+     width:0.2rem;
+     height:0.2rem;
+     background: #fff;
+     border-radius: 1rem;
+     position:absolute;
+     top: 0.5rem;
+     left: 1.64rem;
+ }
+
+ .date_wrap_spe  .xiaofeiDetail_spe{
+     width:8rem;
+     height:1.2rem;
+     background: url(images/detail_title_line.png) left center repeat-x;
+     background-size:100% 1px;
+     position: relative;
+     top:0;
+     left: 1.7rem;
+     padding-left: 1rem;
+    margin-top:0.4rem;
+ }
+
+
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+ function refresh(){
+    var deviceWidth = document.documentElement.clientWidth;
+if(deviceWidth>1080){
+    document.documentElement.style.fontSize=1080/10.8+"px";
+}else{
+     document.documentElement.style.fontSize=deviceWidth/10.8+"px";
+ }
+}
+refresh();
+window.onresize=function(){
+refresh();
+}
+</script>
+
+
+
+</head>
+
+<body>
+<div class="prev_space"></div>
+<div class="main">
+
+    <div class="yearBox">
+        <select>
+            <option>2011</option>
+            <option>2012</option>
+            <option>2013</option>
+            <option>2014</option>
+            <option selected>2015</option>
+            <option>2016</option>
+        </select>
+    </div>
+
+    <div class="date_wrap_spe">
+        <div class="cycle_spe"></div>
+        <div class="xiaofeiDetail_spe">
+            <span class="span_01">消费内容</span>
+            <span class="span_02">消费人</span>
+            <span class="span_03">消费地点</span>
+        </div>
+    </div>
+
+    <div class="date_wrap animated flipInX">
+        <div class="label_name">12.8</div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            <span class="span_01">体检800元</span>
+            <span class="span_02">刘铭</span>
+            <span class="span_03">华西医院</span>
+        </div>
+    </div>
+
+    <div class="date_wrap  animated flipInX" style="animation-delay:0.1s; -webkit-animation-delay:0.1s">
+        <div class="label_name">12.8</div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            <span class="span_01">专家门诊1000元</span>
+            <span class="span_02">刘贝</span>
+            <span class="span_03">华西医院</span>
+        </div>
+    </div>
+
+    <div class="date_wrap  animated flipInX" style="animation-delay:0.1s; -webkit-animation-delay:0.2s">
+        <div class="label_name">12.8</div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            <span class="span_01">体检800元</span>
+            <span class="span_02">刘铭</span>
+            <span class="span_03">华西医院</span>
+        </div>
+    </div>
+
+    <div class="date_wrap  animated flipInX" style="animation-delay:0.1s; -webkit-animation-delay:0.3s">
+        <div class="label_name">12.8</div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            <span class="span_01">专家门诊1000元</span>
+            <span class="span_02">刘贝</span>
+            <span class="span_03">华西医院</span>
+        </div>
+    </div>
+
+    <div class="date_wrap  animated flipInX" style="animation-delay:0.1s; -webkit-animation-delay:0.4s">
+        <div class="label_name">12.8</div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            <span class="span_01">体检800元</span>
+            <span class="span_02">刘铭</span>
+            <span class="span_03">华西医院</span>
+        </div>
+    </div>
+
+    <div class="date_wrap  animated flipInX" style="animation-delay:0.1s; -webkit-animation-delay:0.5s">
+        <div class="label_name">12.8</div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            <span class="span_01">专家门诊1000元</span>
+            <span class="span_02">刘贝</span>
+            <span class="span_03">华西医院</span>
+        </div>
+    </div>
+
+    <div class="date_wrap  animated slideInRight" style="margin-top:1.5rem; animation-delay:0.1s; -webkit-animation-delay:0.6s">
+        <div class="label_name"></div>
+        <div class="circle">
+            <span class="cycle"></span>
+        </div>
+        <div class="xiaofeiDetail">
+            没有消费记录了……
+        </div>
+    </div>
+
+</div>
+<div class="next_space"></div>
+
+
+
+</body>
+<script type="text/javascript">
+$(function(){
+
+
+
+})
+</script>
+</html>

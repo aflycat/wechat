@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="address=no"/>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<title>用户登录</title>
+<style>
+*{
+padding:0;
+margin:0;
+}
+ul li{
+	list-style:none;
+	vertical-align:top;
+}
+a{text-decoration: none;
+    color:#fff;}
+.clear{
+    clear: both;}
+html{
+	min-height:100%;
+}
+body{
+    max-width:1080px;
+	min-height:100%;
+	background:-webkit-linear-gradient(#b04d8d,#566293);
+	color:#fff;
+    font-family:"黑体";
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:rgba(255,255,255,0.6);
+}
+.wrap{
+    padding:0.4rem 0.2rem;
+}
+ .ret_password{
+    position: absolute;
+    top:0.28rem;
+    right:0;
+    background:#f36da0;
+    color:#fff;
+    font-size: 0.4rem;
+    padding:0.3rem 0.3rem 0.3rem 0.5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    box-shadow:0px 0px 40px #87316a ;
+     z-index: 99;
+}
+
+.personal_list{
+    width:4.8rem;
+    height:5.13rem;
+    background:rgba(255,255,255,0.26);
+    border-radius: 0.3rem;
+    float: left;
+    margin:0.2rem;
+
+}
+.personal_list .person_img{
+    width:2.8rem;
+    height:2.8rem;
+    margin: 0 auto;
+    padding:0.28rem 0;
+}
+ .person_img img,.person_img_02_left img{
+    width:100%;
+    height:100%;
+}
+.personal_list p{
+    font-size:0.4rem;
+    text-align: center;
+    padding-bottom:0.2rem ;
+}
+.personal_list .person_xPic{
+    width:0.9rem;
+    height:0.9rem;
+    margin:0 auto;
+    background:url(images/appointment_%20icon_on.png) no-repeat;
+    background-size:cover;
+}
+
+.personal_list_02{
+    width:10rem;
+    height:4.34rem;
+    margin:0.2rem;
+    background:rgba(255,255,255,0.26);
+    border-radius: 0.3rem;
+
+}
+.personal_list_02 .person_img_02_left{
+    width:4.24rem;
+    height:4.24rem;
+    float: left;
+    margin-left: 1.5rem;
+}
+.personal_list_02 .person_img_02_right{
+    width:2.4rem;
+    height:4.34rem;
+    float: left;
+}
+.personal_list_02 .person_img_02_right p{
+    font-size:0.4rem;
+    padding:0.9rem 0;
+}
+.personal_list_02 .person_img_02_right .person_xPic_02{
+    width:0.9rem;
+    height:0.9rem;
+    background:url(images/appointment_icon.png) no-repeat;
+    background-size:cover;
+    margin:0 auto;
+}
+
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+ function refresh(){
+    var deviceWidth = document.documentElement.clientWidth;
+if(deviceWidth>1080){
+    document.documentElement.style.fontSize=1080/10.8+"px";
+}else{
+     document.documentElement.style.fontSize=deviceWidth/10.8+"px";
+ }
+}
+refresh();
+window.onresize=function(){
+refresh();
+}
+</script>
+
+
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="ret_password"><a href="javascript:;">修改密码</a></div>
+
+
+    <div class="personal_list animated flipInX" >
+        <div class="person_img">
+            <img src="images/VIPimage01.png">
+        </div>
+        <p><a href="javascript:;">健康体检预约</a></p>
+        <div class="person_xPic"></div>
+    </div>
+    <div class="personal_list  animated flipInX" style="animation-delay:0.1s">
+        <div class="person_img">
+            <img src="images/VIPimage02.png">
+        </div>
+        <p><a href="javascript:;">专家诊疗预约</a></p>
+        <div class="person_xPic"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="personal_list_02 animated flipInX" style="animation-delay:0.2s">
+        <div class="person_img_02_left"><img src="images/VIPimage03.png"></div>
+        <div class="person_img_02_right">
+            <p><a href="javascript:;">华西绿通预约</a></p>
+            <div class="person_xPic_02"></div>
+        </div>
+    </div>
+    <div class="personal_list animated flipInX" style="animation-delay:0.3s">
+        <div class="person_img">
+            <img src="images/VIPimage04.png">
+        </div>
+        <p><a href="javascript:;">住院关怀预约</a></p>
+        <div class="person_xPic"></div>
+    </div>
+    <div class="personal_list animated flipInX" style="animation-delay:0.4s">
+        <div class="person_img">
+            <img src="images/VIPimage05.png">
+        </div>
+        <p><a href="javascript:;">消费明细查询</a></p>
+        <div class="person_xPic" style="background:url(images/search_icon.png) no-repeat; background-size:cover"></div>
+    </div>
+</div>
+</body>
+
+
+</html>

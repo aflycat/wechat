@@ -1,0 +1,416 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="format-detection" content="address=no"/>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<title>列表详情</title>
+<style>
+ *{
+padding:0;
+margin:0;
+}
+ul li{
+
+	list-style:none;
+	vertical-align:top;
+}
+a{text-decoration: none;
+    color:#fff;}
+html{
+	min-height:100%;
+}
+body{
+    max-width:1080px;
+	min-height:100%;
+	background:-webkit-linear-gradient(#b04d8d,#566293);
+	color:#fff;
+    font-family:"黑体";
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:rgba(255,255,255,0.6);
+}
+
+.prev_space, .next_space{
+    height:1.7rem;
+    background:url(images/line_top.png) no-repeat 1.73rem bottom;
+    background-size:1px;
+}
+.next_space{
+    background:url(images/line_bottom.png) no-repeat 1.73rem 0;
+    background-size:1px;
+    padding-top:0.5rem;
+}
+.main{
+    width:100%;
+    overflow: hidden;
+    background: url("images/line_middle.png")  1.73rem 0 repeat-y;
+    background-size:1px;
+    position: relative;
+}
+
+.main_left{
+    width:2.16rem;
+    height:28rem;
+    font-size: 0.44rem;
+    overflow: hidden;
+
+}
+
+
+ .date_wrap{
+    margin:1.5rem 0;
+    height:0.82rem;
+ }
+
+ .date_wrap > *{
+     float:left;
+ }
+ .date_wrap .label_name{
+     width:1.26rem;
+     height:0.82rem;
+     line-height:0.82rem;
+     text-align:right;
+ }
+
+.date_wrap .circle{
+    position: relative;
+    width:0.82rem;
+    height:0.82rem;
+    margin-left:0.08rem;
+}
+
+ .date_wrap .circle .cycle{
+     margin:0.31rem;
+     width:0.2rem;
+     height:0.2rem;
+     background: #fff;
+     border-radius: 1rem;
+     display: block;
+ }
+
+ .now{
+     position: absolute;
+     top:0.11rem;
+     left:0.11rem;
+     width: 0.6rem;
+     height: 0.6rem;
+     display: block;
+     background: #fff;
+     -webkit-border-radius: 1rem;
+     -moz-border-radius: 1rem;
+     border-radius: 1rem;
+     opacity: 0;
+ }
+
+.main_right{
+    width:7.44rem;
+    height:13.14rem;
+    position:fixed;
+    left:2.96rem;
+    top:1.7rem;
+}
+
+.main_right .detail_wrap{
+    display: none;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    right:0;
+    background: rgba(255,255,255,0.26);
+    border-radius: 0.2rem;
+}
+.main_right .detail_wrap .triangle{
+    width:0;
+    height:0;
+    border-top: 0.2rem solid transparent;
+    border-right: 0.28rem solid rgba(255,255,255,0.26);
+    border-bottom: 0.2rem solid transparent;
+    left:-0.27rem;
+    top:6.25rem;
+    position: absolute;
+}
+
+.main_right .detail_wrap .xiugai{
+    width:0.85rem;
+    height:0.65rem;
+    padding-top:0.9rem;
+    padding-left:0.7rem;
+    position: absolute;
+    bottom:0;
+    right:0;
+    background:url(images/alter_bg.png) no-repeat right bottom;
+    background-size: 100%;
+    border-radius: 0 0 0.2rem 0;
+    z-index: 10;
+    font-size:0.4rem;
+    color:#fff;
+}
+
+.detail_wrap .perDetail{
+    font-size:0.44rem;
+    padding:0.5rem;
+    line-height:1.12rem;
+}
+
+
+</style>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+ function refresh(){
+    var deviceWidth = document.documentElement.clientWidth;
+if(deviceWidth>1080){
+    document.documentElement.style.fontSize=1080/10.8+"px";
+}else{
+     document.documentElement.style.fontSize=deviceWidth/10.8+"px";
+ }
+}
+refresh();
+window.onresize=function(){
+refresh();
+}
+</script>
+
+
+
+</head>
+
+<body>
+<div class="prev_space"></div>
+<div class="main">
+    <div class="main_left">
+
+        <div class="scroll_top" style="width:100%; height: 4.5rem;"></div>
+
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now" style="opacity: 0.26"></span>
+            </div>
+        </div>
+
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now"></span>
+            </div>
+        </div>
+
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now"></span>
+            </div>
+        </div>
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now"></span>
+            </div>
+        </div>
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now"></span>
+            </div>
+        </div>
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now"></span>
+            </div>
+        </div>
+        <div class="date_wrap">
+            <div class="label_name">12.8</div>
+            <div class="circle">
+                <span class="cycle"></span>
+                <span class="now"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="main_right">
+        <div class="detail_wrap animated bounceInRight" style="display: block;">
+            <div class="perDetail">
+                <ul>
+                    <li>1会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+        <div class="detail_wrap animated bounceInRight">
+            <div class="perDetail">
+                <ul>
+                    <li>2会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+        <div class="detail_wrap animated bounceInRight">
+            <div class="perDetail">
+                <ul>
+                    <li>3会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+        <div class="detail_wrap animated bounceInRight">
+            <div class="perDetail">
+                <ul>
+                    <li>4会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+        <div class="detail_wrap animated bounceInRight">
+            <div class="perDetail">
+                <ul>
+                    <li>4会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+        <div class="detail_wrap animated bounceInRight">
+            <div class="perDetail">
+                <ul>
+                    <li>4会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+        <div class="detail_wrap animated bounceInRight">
+            <div class="perDetail">
+                <ul>
+                    <li>4会员注册手机号:18612252554</li>
+                    <li>体检中心:八一体检中心</li>
+                    <li>姓名:Dalei</li>
+                    <li>性别:男</li>
+                    <li>姓名:Dalei</li>
+                    <li>年龄:27</li>
+                    <li>联系电话:18612252554</li>
+                    <li>预约时间:2015-12-03</li>
+                    <li>体检套餐:成人体检套餐</li>
+                    <li>体检时间:2015-12-10</li>
+                    <li>预约状态:已联系</li>
+                </ul>
+            </div>
+            <div class="triangle"></div>
+            <div class="xiugai"><a href="">修改</a></div>
+        </div>
+
+    </div>
+</div>
+<div class="next_space"></div>
+
+
+
+</body>
+<script type="text/javascript">
+$(function(){
+
+    $(".date_wrap").each(function(i) {
+        $(".detail_wrap").each(function(j) {
+            $(".date_wrap").eq(i).click(function(){
+                if(i==j){
+                    console.log($(".date_wrap").eq(i).offset().top);
+                    var distens = $(".date_wrap").eq(i).offset().top - 260;
+                    $('body,html').animate({scrollTop: distens+"px"}, 400);
+                    $(".now").animate({"opacity":"0"},300);
+                    $(this).find(".now").animate({"opacity":"0.26"},300);
+                    $(".detail_wrap").fadeOut();
+                    $(".detail_wrap").eq(j).fadeIn();
+                }
+            })
+        })
+    })
+
+})
+</script>
+</html>
